@@ -1,3 +1,3 @@
-import {identityController} from './idenityController';
+import { identityController } from './idenityController';
 
-export {identityController};
+export { identityController };

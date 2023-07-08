@@ -10,13 +10,13 @@ export class IdentityDao {
 	async identify(email: string, phoneNumber: string) {
 
         const connection = await this.connectionManager.getConnection();
-
+        let resultSet = [];
         try {
             const result = await connection.query(
-                `SELECT * FROM identity WHERE email = $1 AND phone_number = $2`,
-                [email, phoneNumber]
+                `CALL "Entitlements"."contact_identity"($1 , $2, $3)`,
+                [email, phoneNumber, resultSet]
             );
-
+            return result.rows;
         } catch (error) {
             throw error;
         }
