@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { IdentityService } from './../services';
+import { IdentityService } from '../services';
 
 interface IdentityRequest {
     email: string;
